@@ -18,6 +18,7 @@ export class CreateUserComponent implements OnInit {
   photoSelected: string | ArrayBuffer;
   name = "";
   message = "Welcome ";
+  isAgent:boolean = false;
 
   onPhotoSelected(event: HtmlInputEvent): void {
     if (event.target.files && event.target.files[0]) {
@@ -38,5 +39,14 @@ export class CreateUserComponent implements OnInit {
   ): boolean {
     alert("User created");
     return false;
+  }
+
+  onChangeAgent(){
+    if(this.isAgent === true){
+      this.isAgent = false;
+    }
+    else{
+      this.isAgent = true;
+    }
   }
 }

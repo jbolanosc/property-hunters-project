@@ -1,104 +1,134 @@
-<section class="hero is-medium is-primary is-bold">
+<section class="hero is-fullheight-with-navbar is-primary is-bold">
   <div class="container">
     <div class="hero-body">
-      <div class="columns is-centered is-vcentered">
-        <div class="column">
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-4by3">
-                <img
-                  [src]="
-                    photoSelected ||
-                    'https://bulma.io/images/placeholders/1280x960.png'
-                  "
-                  alt="Placeholder image"
-                  (click)="photoInput.click()"
-                />
-              </figure>
-            </div>
-            <div class="card-content">
-              <div class="file has-name is-right">
-                <label class="file-label">
-                  <input
-                    class="file-input"
-                    type="file"
-                    name="resume"
-                    #photoInput
-                    (change)="onPhotoSelected($event)"
+      <div class="container">
+        <h1 class="title">Welcome to Property Hunters</h1>
+        <div class="columns is-centered is-vcentered">
+          <div class="column">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img
+                    [src]="
+                      photoSelected ||
+                      'https://bulma.io/images/placeholders/1280x960.png'
+                    "
+                    alt="Placeholder image"
+                    (click)="photoInput.click()"
                   />
-                  <span class="file-cta">
-                    <span class="file-icon">
-                      <i class="fas fa-upload"></i>
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="field file has-name is-right">
+                  <label class="file-label">
+                    <input
+                      class="file-input"
+                      type="file"
+                      name="resume"
+                      #photoInput
+                      (change)="onPhotoSelected($event)"
+                    />
+                    <span class="file-cta">
+                      <span class="file-icon">
+                        <i class="fas fa-upload"></i>
+                      </span>
+                      <span class="is-large file-label">
+                        Choose a file
+                      </span>
                     </span>
-                    <span class="is-large file-label">
-                      Choose a file
-                    </span>
-                  </span>
-                  <div class="control">
+                    <div class="control">
+                      <input
+                        class="is-primary file-name"
+                        type="text"
+                        placeholder="{{ message }}  {{ name }}"
+                        disabled
+                      />
+                    </div>
+                  </label>
+                </div>
+                <div class="field">
+                  <input
+                    [(ngModel)]="name"
+                    class="is-primary file-name"
+                    type="text"
+                    placeholder="Firstname"
+                    required
+                    #firstname
+                  />
+                </div>
+                <div class="field">
+                  <input
+                    class="is-primary file-name"
+                    type="text"
+                    placeholder="Lastname"
+                    required
+                    #lastname
+                  />
+                </div>
+                <div class="field">
+                  <input
+                    class="is-primary file-name"
+                    type="text"
+                    placeholder="Email"
+                    required
+                    #email
+                  />
+                </div>
+                <div class="field">
+                  <input
+                    class="is-primary file-name"
+                    type="text"
+                    placeholder="Password"
+                    required
+                    #password
+                  />
+                </div>
+                <div class="field">
+                  <input
+                    class="is-primary file-name"
+                    type="text"
+                    placeholder="Phone"
+                    required
+                    #phone
+                  />
+                </div>
+                <div class="field">
+                  <label class="checkbox">
+                    <input type="checkbox" (click)="onChangeAgent()" />
+                    You are an landlord or industry professional
+                  </label>
+                </div>
+
+                <div *ngIf="isAgent">
+                  <div class="field">
                     <input
                       class="is-primary file-name"
                       type="text"
-                      placeholder="{{ message }}  {{name}}"
-                      disabled
+                      placeholder="Company"
+                      required
+                      #phone
                     />
                   </div>
-                </label>
-              </div>
-              <div class="field">
-                <input
-                  [(ngModel)]="name"
-                  class="is-primary file-name"
-                  type="text"
-                  placeholder="Firstname"
-                  required
-                  #firstname
-                />
-              </div>
-              <div class="field">
-                <input
-                  class="is-primary file-name"
-                  type="text"
-                  placeholder="Lastname"
-                  required
-                  #lastname
-                />
-              </div>
-              <div class="field">
-                <input
-                  class="is-primary file-name"
-                  type="text"
-                  placeholder="Email"
-                  required
-                  #email
-                />
-              </div>
-              <div class="field">
-                <input
-                  class="is-primary file-name"
-                  type="text"
-                  placeholder="Password"
-                  required
-                  #password
-                />
-              </div>
-              <div class="field">
-                <input
-                  class="is-primary file-name"
-                  type="text"
-                  placeholder="Phone"
-                  required
-                  #phone
-                />
-              </div>
-              <div class="field">
-                <input
-                  class="button is-primary"
-                  type="submit"
-                  value="Save Picture"
-                  (click)="
-                    saveUser(firstname, lastname, email, password, phone)
-                  "
-                />
+                  <div class="field" #agentCheck>
+                    <input
+                      class="is-primary file-name"
+                      type="text"
+                      placeholder="Company Phone"
+                      required
+                      #phone
+                    />
+                  </div>
+                </div>
+                <div class="field">
+                  <input
+                    class="button is-primary"
+                    type="submit"
+                    value="Save Picture"
+                    (click)="
+                      saveUser(firstname, lastname, email, password, phone)
+                    "
+                  />
+                </div>
               </div>
             </div>
           </div>

@@ -18,7 +18,7 @@ const routes: Routes = [
     component: CreateUserComponent
   },
   {
-    path: "newAgent",
+    path: "agents",
     component: CreateAgentComponent
   },
   {
@@ -35,7 +35,7 @@ const routes: Routes = [
   },
   {
     path: "",
-    redirectTo: "/newUser",
+    redirectTo: "/landing",
     pathMatch: "full"
   }
 ];
