@@ -1,0 +1,197 @@
+<section class="hero is-fullheight-with-navbar is-primary is-bold">
+  <div class="container">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">Welcome to Property Hunters</h1>
+        <div class="columns is-centered is-vcentered">
+          <div class="column">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img
+                    [src]="
+                      photoSelected ||
+                      'https://bulma.io/images/placeholders/1280x960.png'
+                    "
+                    alt="Placeholder image"
+                    (click)="photoInput.click()"
+                  />
+                </figure>
+              </div>
+              <div class="card-content">
+                <form #createForm="ngForm">
+                  <div class="field file has-name is-right">
+                    <label class="file-label">
+                      <input
+                        class="file-input"
+                        type="file"
+                        name="resume"
+                        #photoInput
+                        (change)="onPhotoSelected($event)"
+                        required
+                      />
+                      <span class="file-cta">
+                        <span class="file-icon">
+                          <i class="fas fa-upload"></i>
+                        </span>
+                        <span class="is-large file-label">
+                          Choose a file
+                        </span>
+                      </span>
+                      <div class="control">
+                        <p
+                        class="error file-name"
+                        *ngIf="!photoSelected"
+                      >
+                        Please select a profile picture
+                      </p>
+                      </div>
+                    </label>
+                  </div>
+                  <div class="field">
+                    <input
+                      [(ngModel)]="user.name"
+                      class="input"
+                      [ngClass]="{
+                        'is-danger': firstname.touched && firstname.errors
+                      }"
+                      type="text"
+                      placeholder="Firstname"
+                      required
+                      #firstname="ngModel"
+                      name="firstname"
+                    />
+                    <p
+                      class="error"
+                      *ngIf="!firstname.valid && firstname.touched"
+                    >
+                      firstname is required
+                    </p>
+                  </div>
+                  <div class="field">
+                    <input
+                      class="input"
+                      [ngClass]="{
+                        'is-danger': lastname.touched && lastname.errors
+                      }"
+                      type="text"
+                      placeholder="Lastname"
+                      required
+                      [(ngModel)]="user.lastname"
+                      #lastname="ngModel"
+                      name="lastname"
+                    />
+                    <p
+                      class="error"
+                      *ngIf="!lastname.valid && lastname.touched"
+                    >
+                      lastname is required
+                    </p>
+                  </div>
+                  <div class="field">
+                    <input
+                      [(ngModel)]="user.email"
+                      [ngClass]="{ 'is-danger': email.touched && email.errors }"
+                      email
+                      class="input"
+                      type="email"
+                      placeholder="Email"
+                      required
+                      #email="ngModel"
+                      name="email"
+                    />
+                    <p class="error" *ngIf="!email.valid && email.touched">
+                      Invalid Email
+                    </p>
+                  </div>
+                  <div class="field">
+                    <input
+                      [(ngModel)]="user.password"
+                      class="input"
+                      [ngClass]="{
+                        'is-danger': password.touched && password.errors
+                      }"
+                      type="password"
+                      placeholder="Password"
+                      required
+                      #password="ngModel"
+                      name="password"
+                    />
+                    <p
+                      class="error"
+                      *ngIf="!password.valid && password.touched"
+                    >
+                      password is required
+                    </p>
+                  </div>
+                  <div class="field">
+                    <input
+                      [(ngModel)]="user.phone"
+                      class="input"
+                      [ngClass]="{ 'is-danger': phone.touched && phone.errors }"
+                      type="number"
+                      placeholder="Phone"
+                      required
+                      #phone="ngModel"
+                      name="phone"
+                      maxlength="12"
+                      minlength="5"
+                    />
+                    <p
+                      class="error"
+                      *ngIf="phone.errors && phone.touched"
+                    >
+                      Invalid phone number
+                    </p>
+                  </div>
+                  <div class="field">
+                    <label class="checkbox">
+                      <input
+                        type="checkbox"
+                        (click)="onChangeAgent()"
+                        name="isAgent"
+                      />
+                      You are an landlord or industry professional
+                    </label>
+                  </div>
+
+                  <div *ngIf="isAgent">
+                    <div class="field">
+                      <input
+                        class="input"
+                        [ngClass]="{
+                          'is-danger': company.touched && company.errors
+                        }"
+                        type="text"
+                        placeholder="Company"
+                        required
+                        [(ngModel)]="user.company"
+                        #company="ngModel"
+                        name="company"
+                      />
+                      <p
+                      class="error"
+                      *ngIf="!company.valid && company.touched"
+                    >
+                      Company name is required
+                    </p>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <input
+                      class="button is-primary"
+                      type="submit"
+                      value="Save Picture"
+                      [disabled]="createForm.invalid"
+                      (click)="saveUser()"
+                    />
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

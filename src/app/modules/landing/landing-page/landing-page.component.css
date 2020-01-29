@@ -1,0 +1,12 @@
+.hero {
+  position: relative;
+}
+
+.hero-body {
+  position: absolute;
+  z-index: 999;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  transform: translate(40%, 40%);
+}

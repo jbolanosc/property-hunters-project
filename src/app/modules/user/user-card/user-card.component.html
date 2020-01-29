@@ -1,0 +1,104 @@
+<section class="hero is-fullheight-with-navbar is-primary is-bold">
+  <div class="container">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">Welcome {{user.name || "friend"}}</h1>
+        <div class="columns is-centered is-vcentered">
+          <div class="column">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img
+                    [src]="
+                      photoSelected ||
+                      'https://bulma.io/images/placeholders/1280x960.png'
+                    "
+                    alt="Placeholder image"
+                    (click)="photoInput.click()"
+                  />
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="field file has-name is-right">
+                  <label class="file-label">
+                    <input
+                      class="file-input"
+                      type="file"
+                      name="resume"
+                      #photoInput
+                      (change)="onPhotoSelected($event)"
+                    />
+                    <span class="file-cta">
+                      <span class="file-icon">
+                        <i class="fas fa-upload"></i>
+                      </span>
+                      <span class="is-large file-label">
+                        Choose a file
+                      </span>
+                    </span>
+                  </label>
+                </div>
+                <div class="field">
+                  <input
+                    class="is-primary file-name"
+                    type="text"
+                    value={{user.name}}
+                    required
+                    #firstname
+                  />
+                </div>
+                <div class="field">
+                  <input
+                    class="is-primary file-name"
+                    type="text"
+                    placeholder="Lastname"
+                    required
+                    #lastname
+                  />
+                </div>
+                <div class="field">
+                  <input
+                    class="is-primary file-name"
+                    type="text"
+                    value={{user.email}}
+                    required
+                    #email
+                  />
+                </div>
+                <div class="field">
+                  <input
+                    class="is-primary file-name"
+                    type="text"
+                    value={{user.phone}}
+                    required
+                    #phone
+                  />
+                </div>
+                <div class="field">
+                  <div class="field">
+                    <input
+                      class="is-primary file-name"
+                      type="text"
+                      value={{user.company.name}}
+                      required
+                      #phone
+                    />
+                  </div>
+                  <div class="field" #agentCheck>
+                    <input
+                      class="is-primary file-name"
+                      type="text"
+                      placeholder="Company Phone"
+                      required
+                      #phone
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

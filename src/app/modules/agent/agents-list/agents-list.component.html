@@ -1,0 +1,17 @@
+<section class="hero is-fullheight-with-navbar is-primary is-bold">
+  <div class="container">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title is-centered">The most expierenced agents in market</h1>
+
+        <div *ngIf="agents">
+          <div class="columns">
+            <div *ngFor="let agent of agents" class="colum">
+                <app-agent-card  [agent]="agent"></app-agent-card>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
