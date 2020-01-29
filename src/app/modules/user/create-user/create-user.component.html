@@ -129,13 +129,13 @@
                       [(ngModel)]="user.phone"
                       class="input"
                       [ngClass]="{ 'is-danger': phone.touched && phone.errors }"
-                      type="number"
+                      type="text"
                       placeholder="Phone"
                       required
                       #phone="ngModel"
                       name="phone"
                       maxlength="12"
-                      minlength="5"
+                      [pattern]="phonePattern"
                     />
                     <p
                       class="error"

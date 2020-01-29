@@ -19,7 +19,7 @@ export class CreateUserComponent implements OnInit {
 
   file: File;
   photoSelected: string | ArrayBuffer;
-  phonePattern = "[0-9]{3,10}"; 
+  phonePattern = "^[0-9]{3,12}"; 
   isAgent: boolean = false;
   user = {
     name: "",
