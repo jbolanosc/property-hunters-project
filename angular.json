@@ -27,7 +27,11 @@
               "node_modules/bulma/css/bulma.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              {
+                "input": "node_modules/document-register-element/build/document-register-element.js"
+              }
+            ]
           },
           "configurations": {
             "production": {
@@ -121,6 +125,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "PropertyHunters"
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { UserService } from "src/app/services/user-service/user.service";
+import { User } from "src/app/models/User";
 
 @Component({
   selector: "app-user-card",
@@ -7,16 +8,16 @@ import { UserService } from "src/app/services/user-service/user.service";
   styleUrls: ["./user-card.component.css"]
 })
 export class UserCardComponent implements OnInit {
+  user: User;
   constructor(private userData: UserService) {}
 
   ngOnInit() {
     this.getUser();
   }
-  user:object = {};
 
   getUser() {
-    this.userData.getUser().subscribe(user => {
-      this.user = user, (err) => console.error(err);
+    this.userData.getUser().subscribe(gotUser => {
+      (this.user = gotUser), err => console.error(err);
     });
   }
 }
